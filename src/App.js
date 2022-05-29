@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import Start from "./Start";
 
 const App = () => {
+    const [startScreen, setStartScreen] = useState(true);
+
+    const changeScreen = () => {
+        setStartScreen((prevState) => !prevState);
+    };
+
     return (
-        <main>
-            <h1 className="text-3xl font-bold underline">Hello World</h1>
-        </main>
+        <div className="flex h-screen w-screen items-center justify-center bg-[#1C1C1C]">
+            {startScreen && <Start handleClick={changeScreen} />}
+        </div>
     );
 };
 
