@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const App = () => {
     return (
-        <div>
+        <main>
             <h1 className="text-3xl font-bold underline">Hello World</h1>
-        </div>
+        </main>
     );
 };
 
