@@ -2,7 +2,7 @@ import React from "react";
 
 const Start = (props) => {
     return (
-        <main className="w-[550px] h-[550px] flex flex-col items-center justify-center bg-[#F5F7FB] rounded-lg gap-6">
+        <main className="w-[550px] h-[550px] flex flex-col items-center justify-center bg-[#F5F7FB] rounded-lg gap-6 px-16">
             <h1 className="font-mono font-bold text-[#293264] text-3xl ">
                 Quizzical
             </h1>

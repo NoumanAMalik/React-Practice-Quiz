@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Start from "./Start";
+import Quiz from "./Quiz";
 
 const App = () => {
     const [startScreen, setStartScreen] = useState(true);
@@ -10,7 +11,7 @@ const App = () => {
 
     return (
         <div className="flex h-screen w-screen items-center justify-center bg-[#1C1C1C]">
-            {startScreen && <Start handleClick={changeScreen} />}
+            {startScreen ? <Start handleClick={changeScreen} /> : <Quiz />}
         </div>
     );
 };
