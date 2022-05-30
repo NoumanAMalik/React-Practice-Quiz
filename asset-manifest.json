@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React-Practice-Quiz/static/css/main.e51bdc4d.css",
+    "main.js": "/React-Practice-Quiz/static/js/main.60bd2dd2.js",
+    "index.html": "/React-Practice-Quiz/index.html",
+    "main.e51bdc4d.css.map": "/React-Practice-Quiz/static/css/main.e51bdc4d.css.map",
+    "main.60bd2dd2.js.map": "/React-Practice-Quiz/static/js/main.60bd2dd2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e51bdc4d.css",
+    "static/js/main.60bd2dd2.js"
+  ]
+}
