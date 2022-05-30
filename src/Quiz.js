@@ -19,16 +19,20 @@ const Quiz = () => {
                             question: decode(q.question),
                             correct_answer: decode(q.correct_answer),
                             incorrect_answers: decode(q.incorrect_answers),
+                            selected_answer: "",
                         };
                     })
                 );
             });
     }, []);
 
+    console.log(questions);
+
     const questionElements = questions.map((question) => (
         <Question
             key={nanoid()}
             {...question}
+            changeSelected={setQuestions}
             submitted={submitted}
             changeSubmitted={setSubmitted}
         />
@@ -36,7 +40,11 @@ const Quiz = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault();
-        setSubmitted(true);
+        setSubmitted((prevState) => !prevState);
+        console.log(event.target);
+        if (event.target.textContent === "Play again") {
+            window.location.reload();
+        }
     };
 
     return (
@@ -46,7 +54,7 @@ const Quiz = () => {
                 onClick={handleSubmission}
                 className="text-white font-semibold text-xs bg-[#4D5B9E] rounded-xl p-4"
             >
-                Check Answers
+                {submitted ? "Play again" : "Check Answers"}
             </button>
         </main>
     );

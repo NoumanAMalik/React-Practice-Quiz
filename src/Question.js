@@ -1,23 +1,32 @@
 import { nanoid } from "nanoid";
-import React, { useState } from "react";
+import React from "react";
 
 const Question = (props) => {
-    const [selected, setSelected] = useState(null);
-
     const answerArray = [];
     answerArray.push(...props.incorrect_answers);
     answerArray.push(props.correct_answer);
 
     const handleClick = (event) => {
-        setSelected(event.target.textContent);
+        props.changeSelected((prevState) => {
+            return prevState.map((q) => {
+                if (q.question === props.question) {
+                    return {
+                        ...q,
+                        selected_answer: event.target.textContent,
+                    };
+                } else {
+                    return q;
+                }
+            });
+        });
     };
 
     let backgroundColor = "#F5F7FB";
 
     if (props.submitted) {
-        if (selected === props.correct_answer) {
+        if (props.selected_answer === props.correct_answer) {
             backgroundColor = "#94D7A2";
-        } else if (selected !== props.correct_answer) {
+        } else if (props.selected_answer !== props.correct_answer) {
             backgroundColor = "#F8BCBC";
         }
     } else {
@@ -31,8 +40,10 @@ const Question = (props) => {
                 className="font-mono font-medium text-xs text-[#293264] border-[1px] border-[#4D5B9E] rounded-lg p-2"
                 style={{
                     backgroundColor:
-                        selected === item ? backgroundColor : "#F5F7FB",
-                    border: selected === item && "none",
+                        props.selected_answer === item
+                            ? backgroundColor
+                            : "#F5F7FB",
+                    border: props.selected_answer === item && "none",
                 }}
                 onClick={handleClick}
             >
